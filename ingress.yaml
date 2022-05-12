@@ -11,15 +11,8 @@ spec:
     - host: nginx.refactory.com
       http:
         paths:
-          - path: /srv
-            pathType: Exact
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 80
-          - path: /sra
-            pathType: Exact
+          - path: /srv/?(.*)
+            pathType: Prefix
             backend:
               service:
                 name: nginx-service
